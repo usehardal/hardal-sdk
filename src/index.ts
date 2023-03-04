@@ -15,14 +15,15 @@ export function sendToHardal(data: string) {
   }
 }
 
-function loadMyLib() {
-  const script = document.createElement("script");
-  script.src = "";
-  script.setAttribute("data-website-id", "asdasd");
-  script.async = true;
-  script.defer = true;
-  document.head.appendChild(script);
+export function loadMyLib() {
+  if (typeof window.hardal !== "undefined") {
+    const script = window?.document.createElement("script");
+    script.src = "";
+    script.setAttribute("data-website-id", "asdasd");
+    script.async = true;
+    script.defer = true;
+    window.document.head.appendChild(script);
+  } else {
+    console.warn("Hardal is not loaded"); // should be add the guide docs as link
+  }
 }
-
-// Call the function to load the script
-loadMyLib();

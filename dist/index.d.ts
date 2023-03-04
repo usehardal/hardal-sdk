@@ -6,3 +6,4 @@ declare global {
     }
 }
 export declare function sendToHardal(data: string): void;
+export declare function loadMyLib(): void;

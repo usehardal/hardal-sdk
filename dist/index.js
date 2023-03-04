@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sendToHardal = void 0;
+exports.loadMyLib = exports.sendToHardal = void 0;
 function sendToHardal(data) {
     if (typeof window.hardal !== "undefined" && data) {
         window.hardal.trackEvent(data);
@@ -12,12 +12,16 @@ function sendToHardal(data) {
 }
 exports.sendToHardal = sendToHardal;
 function loadMyLib() {
-    var script = document.createElement("script");
-    script.src = "https://mylib.com/tracker.js";
-    script.setAttribute("data-website-id", "asdasd");
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
+    if (typeof window.hardal !== "undefined") {
+        var script = window === null || window === void 0 ? void 0 : window.document.createElement("script");
+        script.src = "";
+        script.setAttribute("data-website-id", "asdasd");
+        script.async = true;
+        script.defer = true;
+        window === null || window === void 0 ? void 0 : window.document.head.appendChild(script);
+    }
+    else {
+        console.warn("Hardal is not loaded"); // should be add the guide docs as link
+    }
 }
-// Call the function to load the script
-loadMyLib();
+exports.loadMyLib = loadMyLib;
