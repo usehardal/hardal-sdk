@@ -1,0 +1,18 @@
+{
+  "name": "hardak",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web3",
+    "analytics",
+    "Hardal"
+  ],
+  "author": "Berkay Demirbas Hardal <@raufsamestone>",
+  "license": "MIT"
+}
