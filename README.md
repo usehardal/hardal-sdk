@@ -8,13 +8,26 @@
   </a>
 </p>
 
-# Hardal SDK for React
+# Hardal Browser SDK Helpers
 
-[![License metadata: MIT](https://img.shields.io/badge/Package%20license-MIT-blue.svg)](package.json) [![version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://semver.org)
+This repository contains small TypeScript helpers for interacting with an existing Hardal browser tracker. Its package metadata uses the name `hardak`; the published JavaScript and React SDK is maintained separately in [usehardal/hardal](https://github.com/usehardal/hardal).
 
-A React SDK for adding first-party analytics to your app with Hardal.
+[![Package license: MIT](https://img.shields.io/badge/Package%20license-MIT-blue.svg)](package.json) [![Package version](https://img.shields.io/badge/version-1.0.0-green.svg)](package.json)
 
-## Install
+## Repository API
+
+The functions are defined in [src/index.ts](src/index.ts):
+
+- `sendToHardal(eventName)` calls `window.hardal.trackEvent(eventName)` when a tracker is already available.
+- `loadMyLib()` contains an empty script URL and a placeholder website ID. It requires implementation before it can load a real tracker.
+
+These helpers target a browser environment. This repository does not export `HardalProvider`.
+
+## Getting started with the published SDK
+
+For JavaScript or React integrations, use the published `hardal` package and follow [its README](https://github.com/usehardal/hardal#readme). The installation commands and React example below refer to that package.
+
+### Installation
 
 ```bash
 npm install hardal
@@ -22,11 +35,9 @@ npm install hardal
 yarn add hardal
 ```
 
-> `package.json` names this repository's package `hardak`, which is not published on npm. The commands above install the published `hardal` SDK.
+### React example
 
-## How to use
-
-Wrap your app in `HardalProvider` and provide your website ID and endpoint:
+Wrap your app in the published SDK's `HardalProvider` and provide your website ID and endpoint:
 
 ```tsx
 'use client';
@@ -47,3 +58,12 @@ export function Providers({ children }: { children: React.ReactNode }) {
   );
 }
 ```
+
+## Support
+
+Maintained by [Hardal](https://github.com/usehardal).
+
+- [Hardal documentation](https://docs.usehardal.com)
+- [Report an issue](https://github.com/usehardal/hardal-sdk/issues)
+- [Hardal website](https://usehardal.com)
+
